@@ -1,0 +1,15 @@
+service: notion-automations
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  profile: prototypefund
+  lambdaHashingVersion: 20201221
+
+functions:
+  daily:
+    handler: handler.daily
+    events:
+      - schedule: cron(0 8 ? * MON-FRI *)
